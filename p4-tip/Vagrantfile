@@ -16,5 +16,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--vram", "32"]
   end
   
+  config.vm.provision "shell", inline: "cd /home/p4/tutorials/exercises && git clone https://github.com/VM-Lab-Automation/P4lab-blackholing blackholing"
+  
   config.vm.network "forwarded_port", guest: 3389, host: 6001, auto_correct: true
 end
